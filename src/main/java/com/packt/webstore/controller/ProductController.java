@@ -14,7 +14,7 @@ public class ProductController {
     @RequestMapping("/products")
     public String list(Model model) {
         Product iphone = new Product("P1234", "iPhone 5s", new BigDecimal(500));
-        iphone.setDescription("Apple iPhone 5s, smartfon z 4-calowym" +
+        iphone.setDescription("Apple iPhone 5s, smartfon z 4-calowym " +
                 "wyświetlaczem o rozdzielczości 640x1136 oraz 8-megapikselowym aparatem");
         iphone.setCategory("Smart Phone");
         iphone.setManufacturer("Apple");
