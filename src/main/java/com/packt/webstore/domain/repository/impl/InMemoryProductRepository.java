@@ -92,4 +92,48 @@ public class InMemoryProductRepository implements ProductRepository {
         return productsByCategory;
 
     }
+
+    public List<Product> getProductsByManufacturer(String manufacturer) {
+        List<Product> productsByManufacturer = new ArrayList<Product>();
+        for (Product product : listOfProducts) {
+            if (manufacturer.equalsIgnoreCase(product.getManufacturer())) {
+                productsByManufacturer.add(product);
+            }
+        }
+        return productsByManufacturer;
+    }
+
+    public Set<Product> getProductsByPriceFilter(Map<String, List<String>> filterPrice) {
+        Set<Product> productsByPriceFilter = new HashSet<Product>();
+        Set<String> criteria = filterPrice.keySet();
+        float low = -1, high = -1;
+        if (criteria.contains("low")) {
+            low = Float.parseFloat(filterPrice.get("low").get(0));
+        }
+        if (criteria.contains("high")) {
+            high = Float.parseFloat(filterPrice.get("high").get(0));
+        }
+        if (low != -1 && high == -1) {
+            for (Product product : listOfProducts) {
+                if (product.getUnitPrice().floatValue() > low) {
+                    productsByPriceFilter.add(product);
+                }
+            }
+        }
+        if (high != -1 && low == -1) {
+            for (Product product : listOfProducts) {
+                if (product.getUnitPrice().floatValue() < high) {
+                    productsByPriceFilter.add(product);
+                }
+            }
+        }
+        if (high != -1 && low != -1) {
+            for (Product product : listOfProducts) {
+                if (product.getUnitPrice().floatValue() < high && product.getUnitPrice().floatValue() > low) {
+                    productsByPriceFilter.add(product);
+                }
+            }
+        }
+        return productsByPriceFilter;
+    }
 }
