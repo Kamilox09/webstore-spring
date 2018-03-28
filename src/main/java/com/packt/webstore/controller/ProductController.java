@@ -59,16 +59,7 @@ public class ProductController {
     public String filterProducts(Model model, @PathVariable String category,
                                  @MatrixVariable(pathVar = "price") Map<String, List<String>> filterPrice,
                                  @RequestParam("manufacturer") String manufacturer) {
-        Set<Product> byCat = new HashSet<>(productService.getProductsByCategory(category));
-        Set<Product> byPrice = new HashSet<>(productService.getProductsByPriceFilter(filterPrice));
-        Set<Product> byManu = new HashSet<>(productService.getProductsByManufacturer(manufacturer));
-        Set<Product> filtered = new HashSet<>();
-        for (Product product : byCat) {
-            if (byPrice.contains(product) && byManu.contains(product)) {
-                filtered.add(product);
-            }
-        }
-        model.addAttribute("products", filtered);
+        model.addAttribute("products", productService.getProductsByAdvancedFilter(category, filterPrice, manufacturer));
 
 
         return "products";

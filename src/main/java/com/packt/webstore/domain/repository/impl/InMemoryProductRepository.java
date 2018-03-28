@@ -136,4 +136,18 @@ public class InMemoryProductRepository implements ProductRepository {
         }
         return productsByPriceFilter;
     }
+
+    public Set<Product> getProductsByAdvancedFilter(String category, Map<String, List<String>> filterPrice,
+                                                    String manufacturer) {
+        Set<Product> byCat = new HashSet<>(this.getProductByCategory(category));
+        Set<Product> byPrice = new HashSet<>(this.getProductsByPriceFilter(filterPrice));
+        Set<Product> byManu = new HashSet<>(this.getProductsByManufacturer(manufacturer));
+        Set<Product> filtered = new HashSet<>();
+        for (Product product : byCat) {
+            if (byPrice.contains(product) && byManu.contains(product)) {
+                filtered.add(product);
+            }
+        }
+        return filtered;
+    }
 }
