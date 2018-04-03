@@ -13,6 +13,9 @@
         <div class="container">
             <h1>Produkt</h1>
         </div>
+        <div class="pull-right" style="padding-right:50px">
+            <a href="?id=${product.productId}&language=pl">polski</a>|<a href="?id=${product.productId}&language=nl">holenderski</a>
+        </div>
     </div>
 </section>
 <section class="container">
@@ -25,17 +28,17 @@
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <p>
-                <strong>Kod produktu: </strong>
+                <strong><spring:message code="addProduct.form.productId.label"/> </strong>
                 <span class="label label-warning">${product.productId}</span>
             </p>
             <p>
-                <strong>Producent</strong>: ${product.manufacturer}
+                <strong><spring:message code="addProduct.form.manufacturer.label"/></strong>: ${product.manufacturer}
             </p>
             <p>
-                <strong>Kategoria</strong>: ${product.category}
+                <strong><spring:message code="addProduct.form.category.label"/></strong>: ${product.category}
             </p>
             <p>
-                <strong>Dostępna liczba sztuk</strong>: ${product.unitsInStock}
+                <strong><spring:message code="addProduct.form.unitsInStock.label"/></strong>: ${product.unitsInStock}
             </p>
             <p>
             <h4>${product.unitPrice}PLN</h4>
@@ -45,7 +48,7 @@
                     <span class="glyphicon-hand-left glyphicon"></span>Wstecz
                 </a>
                 <a href="<spring:url value="/resource/pdf/${product.productId}.pdf"/>" class="btn btndefault">
-                    Instrukcja obsługi
+                    <spring:message code="addProduct.form.productManual.label"/>
                 </a>
                 <a href="#" class="btn btn-warning btn-large">
                     <span class="glyphicon-shopping-cart glyphicon"></span>
