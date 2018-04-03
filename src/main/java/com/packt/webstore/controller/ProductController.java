@@ -91,6 +91,14 @@ public class ProductController {
                 throw new RuntimeException("Niepowodzenie podczas próby zapisu obrazka produktu", e);
             }
         }
+        MultipartFile productManual = newProduct.getProductManual();
+        if (productManual != null && !productManual.isEmpty()) {
+            try {
+                productManual.transferTo(new File(rootDirectory + "resources\\pdf\\" + newProduct.getProductId() + ".pdf"));
+            } catch (Exception er) {
+                throw new RuntimeException("Niepowodzenie podczas próby zapisu instrukcji obsługi produktu");
+            }
+        }
         productService.addProduct(newProduct);
         return "redirect:/products";
     }

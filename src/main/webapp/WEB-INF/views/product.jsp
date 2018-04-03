@@ -44,6 +44,9 @@
                 <a href="<spring:url value="/products"/>" class="btn btndefault">
                     <span class="glyphicon-hand-left glyphicon"></span>Wstecz
                 </a>
+                <a href="<spring:url value="/resource/pdf/${product.productId}.pdf"/>" class="btn btndefault">
+                    Instrukcja obsługi
+                </a>
                 <a href="#" class="btn btn-warning btn-large">
                     <span class="glyphicon-shopping-cart glyphicon"></span>
                 </a>
