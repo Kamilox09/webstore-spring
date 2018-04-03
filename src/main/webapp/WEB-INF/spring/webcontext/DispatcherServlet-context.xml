@@ -61,6 +61,9 @@
             </map>
         </property>
     </bean>
+    <mvc:interceptors>
+        <bean class="com.packt.webstore.interceptor.PerformanceMonitorInterceptor"/>
+    </mvc:interceptors>
 
 
 </beans>
