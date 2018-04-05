@@ -120,6 +120,11 @@ public class ProductController {
         return mav;
     }
 
+    @RequestMapping("/invalidPromoCode")
+    public String invalidPromoCode() {
+        return "invalidPromoCode";
+    }
+
 
     @InitBinder
     public void initialiseBinder(WebDataBinder binder) {
