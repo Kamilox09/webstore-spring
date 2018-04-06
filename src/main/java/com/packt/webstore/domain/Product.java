@@ -1,6 +1,7 @@
 package com.packt.webstore.domain;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.*;
@@ -20,7 +21,9 @@ public class Product {
     private BigDecimal unitPrice;
     private String description;
     private String manufacturer;
+    @NotEmpty(message = "{NotNull.Product.category.validation}")
     private String category;
+    @Min(value = 0, message = "{Min.Product.unitInStock.validation}")
     private long unitsInStock;
     private long unitsInOrder;
     private boolean discontinued;
