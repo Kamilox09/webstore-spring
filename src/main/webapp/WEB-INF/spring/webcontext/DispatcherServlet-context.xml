@@ -71,10 +71,14 @@
         <property name="springValidators">
             <set>
                 <ref bean="unitsInStockValidator"/>
+                <ref bean="productImageValidator"/>
             </set>
         </property>
     </bean>
     <bean id="unitsInStockValidator" class="com.packt.webstore.validator.UnitsInStockValidator"/>
+    <bean id="productImageValidator" class="com.packt.webstore.validator.ProductImageValidator">
+        <property name="allowedSize" value="1000000"/>
+    </bean>
     <mvc:interceptors>
         <bean class="com.packt.webstore.interceptor.PerformanceMonitorInterceptor"/>
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
