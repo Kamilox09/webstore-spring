@@ -72,19 +72,19 @@ public class CartRestController {
         }
         Product product = productService.getProductById(productId);
         if (product == null) {
-            throw new ProductNotFoundException(productId);
+            throw new IllegalArgumentException(new ProductNotFoundException(productId));
         }
         cart.removeCartItem(new CartItem(product));
         cartService.update(sessionId, cart);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Niepoprawne żądanie, sprawdź przesyłne dane")
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Niepoprawne żądanie, sprawdź przesyłane dane")
     public void handleClientErrors(Exception ex) {
     }
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Wewnętrzny błąd serwera")
-    public void handleServerErrors(Exception ex) {
-    }
+    //@ExceptionHandler(Exception.class)
+    //@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Wewnętrzny błąd serwera")
+    // public void handleServerErrors(Exception ex) {
+    //}
 }

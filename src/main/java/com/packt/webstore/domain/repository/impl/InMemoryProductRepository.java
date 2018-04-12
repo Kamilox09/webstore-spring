@@ -20,6 +20,8 @@ public class InMemoryProductRepository implements ProductRepository {
         iphone.setCategory("Smartfon");
         iphone.setManufacturer("Apple");
         iphone.setUnitsInStock(1000);
+        iphone.setCondition("NEW");
+        iphone.setDiscontinued(false);
 
         Product laptop_dell = new Product("P1235", "Dell Inspiron", new BigDecimal(700));
         laptop_dell.setDescription("Dell Inspiron, 14-calowy laptop (czarny) z procesorem " +
