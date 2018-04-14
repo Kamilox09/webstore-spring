@@ -1,12 +1,13 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-    <script src="/webstore/resources/js/controllers.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script src="/webstore/resource/js/controllers.js"></script>
     <title>Produkt</title>
 </head>
 <body>
@@ -52,7 +53,7 @@
                 <a href="<spring:url value="/resource/pdf/${product.productId}.pdf"/>" class="btn btndefault">
                     <spring:message code="addProduct.form.productManual.label"/>
                 </a>
-                <a href="#" class="btn btn-warning btn-large" ngclick="addToCart('${product.productId}')">
+                <a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.productId}')">
                     <span class="glyphicon-shopping-cart glyphicon"></span>Zamów teraz
                 </a>
                 <a href="<spring:url value="/cart"/>" class="btn btn-default">

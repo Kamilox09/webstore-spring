@@ -65,5 +65,13 @@
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:4.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" level="project" />
+    <orderEntry type="library" name="angular-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="jQuery UI-1.10.2" level="application" />
+    <orderEntry type="library" name="angular-agility-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-jwt-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-environment-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-http-auth-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angularfire-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-wizard-DefinitelyTyped" level="application" />
   </component>
 </module>
