@@ -1,21 +1,30 @@
 package com.packt.webstore.domain;
 
-public class Customer {
-    private long customerId;
-    private String name;
-    private String address;
-    private int noOfOrdersMade;
+import java.io.Serializable;
 
-    public Customer(long customerId, String name) {
+public class Customer implements Serializable {
+    private static final long serialVersionUID = 2284040482222162898L;
+    private String customerId;
+    private String name;
+    private Address billingAddress;
+    private String phoneNumber;
+
+    public Customer() {
+        super();
+        this.billingAddress = new Address();
+    }
+
+    public Customer(String customerId, String name) {
+        this();
         this.customerId = customerId;
         this.name = name;
     }
 
-    public long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(long customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -27,39 +36,51 @@ public class Customer {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public Address getBillingAddress() {
+        return billingAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setBillingAddress(Address billingAddress) {
+        this.billingAddress = billingAddress;
     }
 
-    public int getNoOfOrdersMade() {
-        return noOfOrdersMade;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setNoOfOrdersMade(int noOfOrdersMade) {
-        this.noOfOrdersMade = noOfOrdersMade;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Customer customer = (Customer) o;
-
-        return customerId == customer.customerId;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     @Override
     public int hashCode() {
-        return (int) (customerId ^ (customerId >>> 32));
+        final int prime = 853;
+        int result = 1;
+        result = prime * result
+                + ((customerId == null) ? 0 : customerId.hashCode());
+        return result;
     }
 
     @Override
-    public String toString() {
-        return "Klient [customerId= " + customerId + ", name= " + name + ", noOfOrdersMade= " + noOfOrdersMade + "]";
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Customer other = (Customer) obj;
+        if (customerId == null) {
+            if (other.customerId != null)
+                return false;
+        } else if (!customerId.equals(other.customerId))
+            return false;
+        return true;
     }
+
+
 }
