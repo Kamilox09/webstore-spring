@@ -97,15 +97,15 @@
                         </tbody>
                     </table>
                     <button id="back" class="btn btn-default"
-                            name="_eventId_backToCollectShippingDetail">back
+                            name="_eventId_backToCollectShippingDetail">Wstecz
                     </button>
 
                     <button type="submit" class="btn btn-success"
                             name="_eventId_orderConfirmed">
-                        Confirm   <span class="glyphicon glyphicon-chevron-right"></span>
+                        Zatwierdź   <span class="glyphicon glyphicon-chevron-right"></span>
                     </button>
                     <button id="btnCancel" class="btn btn-default"
-                            name="_eventId_cancel">Cancel
+                            name="_eventId_cancel">Anuluj
                     </button>
                 </div>
             </div>
