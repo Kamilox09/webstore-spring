@@ -2,6 +2,7 @@ package com.packt.webstore.service.impl;
 
 
 import com.packt.webstore.domain.Customer;
+import com.packt.webstore.domain.Customerr;
 import com.packt.webstore.domain.repository.CustomerRepository;
 import com.packt.webstore.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    public List<Customer> getAllCustomers() {
+    public List<Customerr> getAllCustomers() {
         return customerRepository.getAllCustomers();
     }
 }
