@@ -1,36 +1,36 @@
 package com.packt.webstore.domain.repository.impl;
 
-import com.packt.webstore.domain.Customerr;
+import com.packt.webstore.domain.Customer;
 import com.packt.webstore.domain.repository.CustomerRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Repository
 public class InMemoryCustomerRepository implements CustomerRepository {
-
-    private List<Customerr> listOfCustomers = new ArrayList<Customerr>();
+    Map<String, Customer> listOfCustomers;
 
     public InMemoryCustomerRepository() {
-        Customerr janek = new Customerr(1, "Janek");
-        janek.setAddress("ul. Podwawelska 33");
-        janek.setNoOfOrdersMade(2);
-
-        Customerr krysia = new Customerr(2, "Krystyna");
-        krysia.setAddress("ul. Kasztanowska 56");
-        krysia.setNoOfOrdersMade(1);
-
-        Customerr gracus = new Customerr(3, "Gracjan");
-        gracus.setAddress("ul. Ratatajaja 7");
-        gracus.setNoOfOrdersMade(45);
-
-        listOfCustomers.add(janek);
-        listOfCustomers.add(krysia);
-        listOfCustomers.add(gracus);
+        listOfCustomers = new HashMap<>();
     }
 
-    public List<Customerr> getAllCustomers() {
-        return listOfCustomers;
+    public void saveCustomer(Customer customer) {
+        if (!listOfCustomers.containsKey(customer.getCustomerId())) {
+            listOfCustomers.put(customer.getCustomerId(), customer);
+        }
+    }
+
+    public Customer getCustomer(String customerId) {
+        if (listOfCustomers.containsKey(customerId)) {
+            return listOfCustomers.get(customerId);
+        }
+        return null;
+    }
+
+    public Boolean isCustomerExist(String customerId) {
+        if (listOfCustomers.containsKey(customerId))
+            return true;
+        return false;
     }
 }
