@@ -8,13 +8,7 @@
     <title>Błędny kod promocjny</title>
 </head>
 <body>
-<section>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="aler alert-danger">Błędny kod promocjny</h1>
-        </div>
-    </div>
-</section>
+
 <section>
     <div class="container">
         <p>

@@ -11,16 +11,7 @@
     <title>Produkt</title>
 </head>
 <body>
-<section>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Produkt</h1>
-        </div>
-        <div class="pull-right" style="padding-right:50px">
-            <a href="?id=${product.productId}&language=pl">polski</a>|<a href="?id=${product.productId}&language=nl">holenderski</a>
-        </div>
-    </div>
-</section>
+
 <section class="container" ng-app="cartApp">
     <div class="row">
         <div class="col-md-5">

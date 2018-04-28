@@ -7,14 +7,7 @@
     <title>Klienci</title>
 </head>
 <body>
-<section>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Klienci</h1>
-            <p>Wszyscy klienci naszego sklepu</p>
-        </div>
-    </div>
-</section>
+
 <section class="container">
     <div class="row">
         <c:forEach items="${customers}" var="customer">

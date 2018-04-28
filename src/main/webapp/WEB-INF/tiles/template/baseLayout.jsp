@@ -7,9 +7,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><tiles:insertAttribute name="title"/></title>
-    <link href="http://getbootstrap.com/dist.css.boostrap.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
 </head>
 <body>
