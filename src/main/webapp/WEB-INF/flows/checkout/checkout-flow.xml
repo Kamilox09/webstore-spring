@@ -7,10 +7,26 @@ http://www.springframework.org/schema/webflow/spring-webflow.xsd">
     <action-state id="addCartToOrder">
         <evaluate expression="cartServiceImpl.validate(requestParameters.cartId)" result="order.cart"/>
         <transition to="InvalidCartWarning" on-exception="com.packt.webstore.exception.InvalidCartException"/>
-        <transition to="collectCustomerInfo"/>
+        <transition to="checkCustomer"/>
     </action-state>
+    <action-state id="saveCust">
+        <evaluate expression="customerServiceImpl.saveCustomer(order.customer)"/>
+        <transition to="collectShippingDetail"/>
+    </action-state>
+    <action-state id="getCust">
+        <evaluate expression="order.customer=customerServiceImpl.getCustomer(order.customer.customerId)"/>
+        <transition to="collectShippingDetail"/>
+    </action-state>
+    <view-state id="checkCustomer" view="checkCustomer.jsp" model="order">
+        <transition to="checkCustomerExist"/>
+    </view-state>
+    <decision-state id="checkCustomerExist">
+        <if test="customerServiceImpl.isCustomerExist(order.customer.customerId)"
+            then="getCust"
+            else="collectCustomerInfo"/>
+    </decision-state>
     <view-state id="collectCustomerInfo" view="collectCustomerInfo.jsp" model="order">
-        <transition on="customerInfoCollected" to="collectShippingDetail"/>
+        <transition on="customerInfoCollected" to="saveCust"/>
     </view-state>
     <view-state id="collectShippingDetail" model="order">
         <transition on="shippingDetailCollected" to="orderConfirmation"/>
