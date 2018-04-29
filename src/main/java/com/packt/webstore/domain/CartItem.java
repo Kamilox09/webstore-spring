@@ -12,6 +12,7 @@ public class CartItem implements Serializable {
     private BigDecimal totalPrice;
 
     public CartItem() {
+        this.quantity = 1;
     }
 
     public CartItem(Product product) {
